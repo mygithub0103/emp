@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إدخال سيارة</title>
+</head>
+<body>
+    <h2>إدخال بيانات السيارة</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">حفظ</button>
+    </form>
+</body>
+</html>
+<a href="/car/">
+    <button type="button">عرض السيارات</button>
+</a>
+
+<a href="/list-new/">
+    <button type="button">show</button>
+</a>
+

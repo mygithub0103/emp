@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة السيارات</title>
+</head>
+<body>
+    <h1>السيارات</h1>
+    <ul>
+        {% for Cars in car %}
+        {% if Cars.year == 2020 %}
+            <li>{{ Cars.name }} - {{ Cars.color }} - {{ Cars.year }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>

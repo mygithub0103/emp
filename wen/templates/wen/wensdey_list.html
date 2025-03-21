@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة السيارات</title>
+</head>
+<body>
+    <h1>   المعلومات ليوم الاربعاء </h1>
+    <ul>
+        {% for Wensdey_list in wen %}
+            <li>{{ inforamtion.name }} - {{ inforamtion.position }} - {{ inforamtion.salary }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

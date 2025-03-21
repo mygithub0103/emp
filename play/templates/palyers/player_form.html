@@ -1,0 +1,7 @@
+<h2>إضافة لاعب جديد</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">حفظ</button>
+</form>
+<a href="{% url 'player_list' %}">العودة إلى القائمة</a>

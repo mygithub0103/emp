@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الطلبة</title>
+</head>
+<body>
+    <h1>تسجيل الطلبة</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% comment %} <label for="full_name">الاسم الثلاثي:</label>
+        <input type="text" name="full_name" required><br>
+
+        <label for="college_name">اسم الكلية:</label>
+        <select name="college_name" required>
+            <option value="الطب">كلية الطب</option>
+            <option value="الهندسة">كلية الهندسة</option>
+            <option value="القانون">كلية القانون</option>
+        </select><br>
+
+        <label for="average">المعدل:</label>
+        <input type="number" name="average" step="0.01" required><br>
+
+        <label for="department">القسم</label>
+        <input type="text" name="department"  required><br>
+
+        <label for="branch">اختر الفرع:</label>
+        <select name="branch" required>
+            <option value="العلمي">العلمي</option>
+            <option value="الادبي"> الادبي</option>
+            <option value="المهني ">المهني</option>
+        </select><br>
+        
+
+
+        <button type="submit">تسجيل</button>  <br> {% endcomment %}
+
+
+
+
+
+        {% comment %} <label for="legs">الارجل </label>
+        <input type="number" name="legs" step="0.01" required><br>
+
+        <label for="name">اسم الحيوان</label>
+        <input type="text" name="name"  required><br>
+
+        <label for="food">نوع الطعام</label>
+        <input type="text" name="food"  required><br>
+
+
+        <button type="submit">تسجيل</button>  <br>
+        {% endcomment %}
+        
+        {{ form }}
+        <button type="submit">تسجيل</button>  <br>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

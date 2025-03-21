@@ -1,0 +1,33 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل الزبون</title>
+</head>
+<body>
+    <h1>تفاصيل الزبون</h1>
+    <p>الاسم: {{ customer.first_name }} {{ customer.last_name }}</p>
+    <p>البريد الإلكتروني: {{ customer.email }}</p>
+    <p>رقم الهاتف: {{ customer.phone }}</p>
+    <p>العنوان: {{ customer.address }}</p>
+    <p>تاريخ الإضافة: {{ customer.created_at }}</p>
+    <a href="{% url 'customer_list' %}">عودة إلى القائمة</a>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل الزبون</title>
+</head>
+<body>
+    <h1>تفاصيل الزبون</h1>
+    <p>الاسم الأول: {{ object.first_name }}</p>
+    <p>الاسم الأخير: {{ object.last_name }}</p>
+    <p>البريد الإلكتروني: {{ object.email }}</p>
+    <p>رقم الهاتف: {{ object.phone }}</p>
+    <p>العنوان: {{ message }}</p>  <!-- عرض الرسالة هنا -->
+</body>
+</html>
+

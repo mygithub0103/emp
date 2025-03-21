@@ -1,0 +1,20 @@
+<h2>قائمة اللاعبين</h2>
+<a href="{% url 'player_add' %}">إضافة لاعب جديد</a>
+<table border="1">
+    <tr>
+        <th>الاسم</th>
+        <th>العمر</th>
+        <th>الفريق</th>
+        <th>المركز</th>
+        <th>تاريخ الإضافة</th>
+    </tr>
+    {% for player in players %}
+    <tr>
+        <td>{{ player.first_name }} {{ player.last_name }}</td>
+        <td>{{ player.age }}</td>
+        <td>{{ player.team }}</td>
+        <td>{{ player.position }}</td>
+        <td>{{ player.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>

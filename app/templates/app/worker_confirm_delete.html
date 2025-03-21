@@ -1,0 +1,11 @@
+<form method="post">
+    {% csrf_token %}
+    <p>هل أنت متأكد من أنك تريد حذف هذا الموظف؟</p>
+    <button type="submit">نعم، احذف</button>
+    <a href="{% url 'worker_list' %}">إلغاء</a>
+    <a href="{% url 'worker_delete' worker.id %}">🗑 حذف</a>
+
+</form>
+
+
+

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة السيارات</title>
+</head>
+<body>
+    <h1الصفوف</h1>
+    <ul>
+        {% for Clas in classes %}
+            <li>{{ Clas.name }} - {{ Clas.color }} - {{ Clas.year }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

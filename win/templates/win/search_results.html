@@ -1,0 +1,20 @@
+ <!-- win/templates/search_results.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج البحث</title>
+</head>
+<body>
+    <h1>نتائج البحث عن: "{{ search_term }}"</h1>
+    <ul>
+        {% for employee in results %}
+            <li>{{ employee.name }}</li>
+        {% empty %}
+            <li>لا توجد نتائج.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'search_employees' %}">عودة إلى البحث</a>
+</body>
+</html>

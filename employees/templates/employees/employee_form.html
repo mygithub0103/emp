@@ -1,0 +1,12 @@
+
+<h1>إضافة موظف جديد</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="save">حفظ</button>
+    
+    <button type="button" onclick="window.location.href='/employees/add/'">إضافة جديد</button>
+    <a href="{% url 'employee_list' %}" class="btn">الذهاب إلى عرض أسماء الموظفين</a>
+</form>
+

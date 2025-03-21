@@ -1,0 +1,16 @@
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة الكليات</title>
+</head>
+<body>
+    <h1>اسماء الكليات</h1>
+    <ul>
+        {% for college in colleges %}
+            <li>{{ college.name }} - {{ college.color }} - {{ college.year }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

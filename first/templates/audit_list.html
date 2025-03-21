@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجلات التدقيق</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: right;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input {
+            width: 98%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .alert {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>إضافة سجل تدقيق جديد</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">إضافة</button>
+    </form>
+
+    {% if expired_audits %}
+        <div class="alert">
+            <strong>تحذير!</strong> انتهت فترة التدقيق للسجلات التالية:
+            <ul>
+                {% for audit in expired_audits %}
+                    <li>الأمر الإداري رقم {{ audit.order_number }} - الجهة: {{ audit.audited_entity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <h2>سجلات التدقيق</h2>
+    <table>
+        <tr>
+            <th>رقم الأمر الإداري</th>
+            <th>تاريخ الأمر</th>
+            <th>الجهة الخاضعة للتدقيق</th>
+            <th>بداية التدقيق</th>
+            <th>نهاية التدقيق</th>
+        </tr>
+        {% for audit in audits %}
+        <tr {% if audit.is_expired %} style="background-color: #ffcccc;" {% endif %}>
+            <td>{{ audit.order_number }}</td>
+            <td>{{ audit.order_date }}</td>
+            <td>{{ audit.audited_entity }}</td>
+            <td>{{ audit.start_date }}</td>
+            <td>{{ audit.end_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

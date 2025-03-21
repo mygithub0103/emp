@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة الموظفين</title>
+</head>
+<body>
+    <h1>الموظفون</h1>
+    <ul>
+        {% for Peop in peoples %}
+            <li>{{ peop.name }} - {{ peop.job_title }} - {{ peop.salary }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

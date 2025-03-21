@@ -1,0 +1,32 @@
+{% comment %} <h2>قائمة الموظفين</h2>
+<a href="{% url 'employee_add' %}">إضافة موظف جديد</a>
+<ul>
+    {% for employee in employees %}
+        <li>
+            <a href="{% url 'employee_detail' employee.pk %}">
+                {{ employee.first_name }} {{ employee.last_name }} - {{ employee.job_title }}
+            </a>
+            | <a href="{% url 'employee_edit' employee.pk %}">تعديل</a>
+            | <a href="{% url 'employee_delete' employee.pk %}">حذف</a>
+        </li>
+    {% endfor %}
+</ul> {% endcomment %}
+
+
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>قائمة الكليات</title>
+</head>
+<body>
+    <h1>اسماء الكلياتfffffffffffffffffffffffffff</h1>
+    <ul>
+        {% for employeein in employees %}
+            <li>{{ employeein.name }} - {{ employeein.color }} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

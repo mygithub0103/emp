@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الزبائن</title>
+</head>
+<body>
+    <h1>قائمة الزبائن</h1>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                <a href="{% url 'customer_detail' customer.pk %}">{{ customer.first_name }} {{ customer.last_name }}</a>
+                <a href="{% url 'customer_detail' customer.pk %}">تفاصيل الزبون</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h1>قائمة السواق</h1>
+    <ul>
+        {% for driver in drivers %}
+             <li>
+                <a href="{% url 'driver_detail' driver.pk %}">
+                {{ driver.first_name }} {{ driver.last_name }} {{driver.car}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <h1>قائمةالعمال</h1>
+    <ul>
+        {% for worker in workers %}
+             <li>
+                 
+               
+                {{ worker.first_name }} {{ worker.last_name }} 
+
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% comment %} <ul>
+        {% for student in  student2 %}
+             <li>
+                <a href="{% url student_list.html%}">
+                 
+                {{ student.first_name }} {{ student.last_name }} 
+                </a>
+            </li>
+        {% endfor %}
+    </ul> {% endcomment %}
+</body>
+</html>
